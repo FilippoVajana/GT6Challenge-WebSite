@@ -16,7 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="css/gt6.css" rel="stylesheet">
 
-
+    
     </head>
     <body>
 
@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">GT6</a>
+          <img src="img/gt6_logo.jpg" alt="" class="navbar-logo">
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -46,7 +46,7 @@
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron top-content">
       <div class="container">
         <h1 class="text-capitalize">//the grand challenge <sup>2</sup>//</h1>
         <hr>
@@ -54,9 +54,8 @@
             <p><img src="img/the_stig_silhouette_decal.jpg" class="img-responsive stig_logo_dx" alt="Responsive image">                
                 Benvenuti alla seconda edizione della competizione di Gran Turismo 6 per incoronare il nuovo <strong class="text-uppercase">The Stig</strong>.<br>
                 Un nuovo circuito studiato e realizzato per l'occasione da illustri progettisti. <br>
-                Un nuovo mezzo dalle prestazioni esaltanti. <br>
-                Un solo comandamento:        
-                <h1 class="text-uppercase text-center">gas a martello!</h1>
+                Un nuovo mezzo dalle prestazioni esaltanti. <br>   
+                Nuovi agguerriti sfidanti             
             </p>  
         </div>              
         
@@ -67,22 +66,43 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Circuito</h2>
+          <h2 class="section-header">Circuito</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Mezzo</h2>
+          <h2 class="section-header">Mezzo</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Sfidanti</h2>
+          <h2 class="section-header">Sfidanti</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
 
+      <hr>
+
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+                  <h2 class="section-header">Classifica</h2>                  
+                  <p id="leaderboard_update">Classifica aggiornata al </p>
+                  <div class="table-responsive">
+                      <table class="table" id="leaderboard">                        
+                          <tr>
+                            <th>Posizione</th>
+                            <th>Giocatore</th>
+                            <th>Tempo</th>
+                            <th>delta_pos</th>
+                          </tr> 
+                          
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
       <hr>
 
       <footer>
@@ -95,7 +115,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="bower_components\jquery\dist\jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="bower_components\jquery\dist\jquery.min.js"><\/script>')</script>
     <script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>    
+
+    <script type="text/javascript" src="script/js/get_time.js"></script>
+    <script type="text/javascript" src="script/js/get_leaderboard.js"></script>
   </body>
 </html>

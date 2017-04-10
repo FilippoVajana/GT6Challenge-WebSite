@@ -1,5 +1,20 @@
+.navbar-logo
+{
+    height: 75px;
+}
+
+.top-content{
+    margin-top: 75px;
+}
+
 .stig_logo_dx{
     padding-right: 10%;
     height:250px;
     float: right
+}
+
+
+.section-header{
+    border-bottom: 5px solid;
+    border-bottom-color: #222
 }
