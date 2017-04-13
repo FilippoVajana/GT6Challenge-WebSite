@@ -1,6 +1,16 @@
 {
     "version": "0.2.0",
     "configurations": [          
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Nginx Docker",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceRoot}",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ]
+        },
         {            
             "name": "Launch index.html (disable sourcemaps)",
             "type": "chrome",
@@ -11,6 +21,7 @@
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ]
-        }       
+        }      
+
     ]
 }
