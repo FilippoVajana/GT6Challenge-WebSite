@@ -4,24 +4,12 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Nginx Docker",
-            "url": "http://localhost:8080",
+            "name": "debian-vm-webdevelop",
+            "url": "http://192.168.1.109:80",
             "webRoot": "${workspaceRoot}",
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ]
-        },
-        {            
-            "name": "Launch index.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/index.html",
-            "port": 9222,
-            "runtimeArgs": [
-                "--remote-debugging-port=9222"
-            ]
-        }      
-
+        }
     ]
 }

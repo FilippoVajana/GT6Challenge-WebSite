@@ -84,25 +84,40 @@
 
       <hr>
 
-      <div class="container">
-          <div class="row">
-              <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                  <h2 class="section-header">Classifica</h2>                  
-                  <p id="leaderboard_update">Classifica aggiornata al </p>
-                  <div class="table-responsive">
-                      <table class="table" id="leaderboard">                        
-                          <tr>
-                            <th>Posizione</th>
-                            <th>Giocatore</th>
-                            <th>Tempo</th>
-                            <th>delta_pos</th>
-                          </tr> 
-                          
-                      </table>
-                  </div>
+      
+      <div class="row">
+          <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+              <h2 class="section-header">Classifica</h2>                  
+              <p id="leaderboard_update">Classifica aggiornata al </p>
+              <div>
+                <p><strong>Nuovo tempo</strong></p>
+                  <form class="navbar-form" action="/script/php/add_time.php" method="get">
+                    <div class="form-group">
+                      <select name="" id="player_select" class="form-control">
+                        <option value="">root</option>
+                        <option value="">nickname</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" placeholder="Lap Time (MM:SS.ddd)" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Add</button>
+                  </form>               
+                
+              </div>
+              <div class="table-responsive">
+                  <table class="table" id="leaderboard">                        
+                      <tr>
+                        <th>Posizione</th>
+                        <th>Giocatore</th>
+                        <th>Tempo</th>
+                        <th>delta_pos</th>
+                      </tr> 
+                      
+                  </table>
               </div>
           </div>
-      </div>
+      </div>      
       <hr>
 
       <footer>
