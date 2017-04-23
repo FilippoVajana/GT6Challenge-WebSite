@@ -29,12 +29,5 @@ include 'database.php';
     {
         echo json_encode(array("state"=>"KO", "message"=>$e->getMessage()));
         return;
-    }
-
-  //check result
-  // set the resulting array to associative
-  //$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  //print_r($result);
-  //$res = $stmt->fetchAll();
-  //print_r($res);
+    }  
 ?>

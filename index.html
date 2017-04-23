@@ -32,15 +32,18 @@
           <img src="img/gt6_logo.jpg" alt="" class="navbar-logo">
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" action="/script/php/login.php" method="post" id="login-form" style="display: none">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Username" class="form-control" name="USER">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control" name="PASSWORD">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-success">Log in</button>
           </form>
+          <div class="login-name">
+            <span id="log-name" class="text-uppercase"></span>
+          </div>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -66,52 +69,74 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2 class="section-header">Circuito</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h3 class="section-header">Giocatori</h3>     
+          <div class="counter">
+          </div> 
+          <hr>    
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Nuovo giocatore</button>
         </div>
         <div class="col-md-4">
-          <h2 class="section-header">Mezzo</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2 class="section-header">Sfidanti</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h3 class="section-header">Tempi</h3>          
+          <div class="counter">
+          </div>
+          <hr>
+          <form action="/script/php/add_time.php" method="get">                  
+            <div class="form-group">
+              <select id="playerId_select" class="form-control">                               
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" id="player_laptime" placeholder="Tempo (M:SS.ddd)" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success" style="display: none">Aggiungi nuovo tempo</button>
+          </form>
+          <div>
+            <div id="add_laptime_result" style="display: inline" role="alert"></div>
+            <button type="submit" disabled class="btn btn-success" id="save_laptime_Btn" onclick="add_laptime()">Nuovo tempo</button>
+          </div>
         </div>
       </div>
 
+<!-- MODAL></!-->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Aggiungi un nuovo giocatore</h4>
+      </div>
+      <div class="modal-body">
+        <form class="navbar-form" action="/script/php/add_user.php" method="get" id="form"> 
+          <div class="form-group">
+            <input type="text" placeholder="Nome" class="form-control" name="name" id="user_name">
+            <input type="text" placeholder="Nickname" class="form-control" name="nickname" id="user_nickname">            
+          </div> 
+          <button type="submit" class="btn btn-success" style="display: none">Salva</button>         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div id="add_user_result" style="display: inline" role="alert"></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+        <button type="submit" class="btn btn-success" id="saveBtn" onclick="add_user()">Salva</button>
+      </div>      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
       <hr>
 
-      
+<!-- CLASSIFICA></!-->
       <div class="row">
-          <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+          <div class="col-xs-12 col-lg-10">
               <h2 class="section-header">Classifica</h2>                  
-              <p id="leaderboard_update">Classifica aggiornata al </p>
-              <div>
-                <p><strong>Nuovo tempo</strong></p>
-                  <form class="navbar-form" action="/script/php/add_time.php" method="get">
-                    <div class="form-group">
-                      <select name="" id="player_select" class="form-control">
-                        <option value="">root</option>
-                        <option value="">nickname</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" placeholder="Lap Time (MM:SS.ddd)" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Add</button>
-                  </form>               
-                
-              </div>
+              <p id="leaderboard_update">ultimo aggiornamento </p>    
               <div class="table-responsive">
                   <table class="table" id="leaderboard">                        
                       <tr>
                         <th>Posizione</th>
                         <th>Giocatore</th>
                         <th>Tempo</th>
-                        <th>delta_pos</th>
+                        <th>delta_T</th>
                       </tr> 
                       
                   </table>
@@ -133,7 +158,22 @@
     <script>window.jQuery || document.write('<script src="bower_components\jquery\dist\jquery.min.js"><\/script>')</script>
     <script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>    
 
-    <script type="text/javascript" src="script/js/get_time.js"></script>
-    <script type="text/javascript" src="script/js/get_leaderboard.js"></script>
+    <script type="text/javascript" src="script/js/add_user.js"></script>
+    <script type="text/javascript" src="script/js/add_laptime.js"></script>   
+    <script type="text/javascript" src="script/js/get_users.js"></script>
+    <!-- Document ready></!-->
+    <script type="text/javascript"> 
+      $( document ).ready(function() 
+      {        
+        //laptime button
+        var btn = document.getElementById('save_laptime_Btn');
+        btn.disabled = false;
+        //////////////////
+        //users options
+        var getUsers = new GetUsersOptions();
+        getUsers.get_users_option();
+      });
+    </script>
+    
   </body>
 </html>
