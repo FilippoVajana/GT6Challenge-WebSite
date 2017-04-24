@@ -92,7 +92,7 @@
           </form>
           <div>
             <div id="add_laptime_result" style="display: inline" role="alert"></div>
-            <button type="submit" disabled class="btn btn-success" id="save_laptime_Btn" onclick="add_laptime()">Nuovo tempo</button>
+            <button type="submit" disabled class="btn btn-success" id="save_laptime_Btn" onclick="add_laptime(); location.reload(true);">Nuovo tempo</button>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@
 
 <!-- CLASSIFICA></!-->
       <div class="row">
-          <div class="col-xs-12 col-lg-10">
+          <div class="col-xs-12 col-lg-12">
               <h2 class="section-header">Classifica</h2>                  
               <p id="leaderboard_update">ultimo aggiornamento </p>    
               <div class="table-responsive">
@@ -135,10 +135,8 @@
                       <tr>
                         <th>Posizione</th>
                         <th>Giocatore</th>
-                        <th>Tempo</th>
-                        <th>delta_T</th>
-                      </tr> 
-                      
+                        <th>Tempo</th>                        
+                      </tr>                       
                   </table>
               </div>
           </div>
@@ -161,6 +159,7 @@
     <script type="text/javascript" src="script/js/add_user.js"></script>
     <script type="text/javascript" src="script/js/add_laptime.js"></script>   
     <script type="text/javascript" src="script/js/get_users.js"></script>
+    <script type="text/javascript" src="script/js/Leaderboard.js"></script>
     <!-- Document ready></!-->
     <script type="text/javascript"> 
       $( document ).ready(function() 
@@ -168,10 +167,17 @@
         //laptime button
         var btn = document.getElementById('save_laptime_Btn');
         btn.disabled = false;
+
         //////////////////
         //users options
         var getUsers = new GetUsersOptions();
         getUsers.get_users_option();
+
+        /////////////////
+        //leaderboard
+        var leaderboard = new LeaderboardBuilder();
+        leaderboard.get_leaderboard();
+
       });
     </script>
     

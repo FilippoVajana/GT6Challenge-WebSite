@@ -1,6 +1,5 @@
 function GetUsersOptions() 
 { 
-
     this.build_url = function()
     {
         var url = window.location.href;
