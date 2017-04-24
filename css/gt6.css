@@ -19,3 +19,12 @@
     border-bottom: 5px solid;
     border-bottom-color: #222
 }
+
+th{
+    text-align: center;
+    font-size: large;
+}
+tr{
+    text-align: center;
+    font-size: medium;
+}

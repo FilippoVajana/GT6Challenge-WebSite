@@ -10,7 +10,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-    $sql = "SELECT * FROM user";
+    $sql = "SELECT * FROM user ORDER BY name ASC";
     try
     {
         //preparing sql

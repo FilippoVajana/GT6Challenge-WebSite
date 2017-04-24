@@ -29,7 +29,7 @@ function LeaderboardBuilder()
             var row = document.createElement("tr");
             //data
             var timeName = (element.name).charAt(0).toUpperCase() + (element.name).slice(1) + "\t[" + (element.nickname).charAt(0).toUpperCase() + (element.nickname).slice(1) + "]";
-            var data = [index, timeName, element.time];
+            var data = [index + 1, timeName, element.time];
             //append data to row
             data.forEach(function(e) 
             {
