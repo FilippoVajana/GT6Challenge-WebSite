@@ -19,7 +19,7 @@
     
     </head>
     <body>
-
+      
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -92,7 +92,8 @@
           </form>
           <div>
             <div id="add_laptime_result" style="display: inline" role="alert"></div>
-            <button type="submit" disabled class="btn btn-success" id="save_laptime_Btn" onclick="add_laptime(); location.reload(true);">Nuovo tempo</button>
+            <button type="submit" disabled class="btn btn-success" id="save_laptime_Btn" onclick="add_laptime()">Nuovo tempo</button>
+            <button type="button" class="btn" onclick="location.reload()">Refresh</button>
           </div>
         </div>
       </div>
@@ -159,7 +160,7 @@
     <script type="text/javascript" src="script/js/add_user.js"></script>
     <script type="text/javascript" src="script/js/add_laptime.js"></script>   
     <script type="text/javascript" src="script/js/get_users.js"></script>
-    <script type="text/javascript" src="script/js/Leaderboard.js"></script>
+    <script type="text/javascript" src="script/js/Leaderboard.js"></script>    
     <!-- Document ready></!-->
     <script type="text/javascript"> 
       $( document ).ready(function() 
@@ -176,8 +177,7 @@
         /////////////////
         //leaderboard
         var leaderboard = new LeaderboardBuilder();
-        leaderboard.get_leaderboard();
-
+        leaderboard.get_leaderboard();        
       });
     </script>
     

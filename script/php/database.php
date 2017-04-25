@@ -8,6 +8,7 @@
 
         //decode
         $json_data = json_decode($json, true);
+        //echo $json_data;
 
         //get user entry
         foreach($json_data as $key => $value)
@@ -22,18 +23,18 @@
     function PDOConnect()
     {
         //select user 
-        $user = "user"; //default user       
-        if(isset($_SESSION["USER_LOGGED"])) //check for admin
-        {
-            $user = $_SESSION["USER_LOGGED"];
-        }
+        //$user = "user"; //default user       
+        //if(isset($_SESSION["USER_LOGGED"])) //check for admin
+        //{
+        //    $user = $_SESSION["USER_LOGGED"];
+        //}
 
         //get credentials
         $user_credentials = Database::GetUserCredentials($user);
-        $username = $user_credentials["Username"];
-        $password = $user_credentials["Password"];
-        $server = $user_credentials["Server"];
-        $db = $user_credentials["Database"];
+        $username = "user";
+        $password = "";
+        $server = "192.168.1.103";
+        $db = "gt6";
         //print_r($user_credentials);
         
         //connect
@@ -48,7 +49,7 @@
             die("KO\n" . $e->getMessage());  
             //return null;          
         }        
-    }
+    }    
   }
 
 

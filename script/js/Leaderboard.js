@@ -46,6 +46,12 @@ function LeaderboardBuilder()
 
     }
 
+    this.last_update = function()
+    {
+        var time = new Date().toLocaleString();
+        var tag = document.getElementById("leaderboard_update");
+        tag.innerText += "\t\t" + time;
+    }
 }
 
 LeaderboardBuilder.prototype.get_leaderboard = function()
@@ -53,4 +59,6 @@ LeaderboardBuilder.prototype.get_leaderboard = function()
     var url = this.getTimesUrl();
     var result = this.httpGet(url);
     this.buildLaptimesTable(result);
+    this.last_update();
 }
+

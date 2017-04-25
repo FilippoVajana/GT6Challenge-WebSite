@@ -10,6 +10,16 @@
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "rpi",
+            "url": "http://192.168.1.103/",
+            "webRoot": "${workspaceRoot}",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ]
         }
     ]
 }

@@ -25,7 +25,7 @@ function input_validation(playerId, laptime)
         return false;
     //check laptime string format
     var regex = new RegExp("\d:\d\d.\d\d\d");
-    if(regex.test(laptime))
+    if(regex.test(laptime) || laptime=="")
         return false;
 
     return true;

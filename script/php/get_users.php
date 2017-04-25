@@ -33,13 +33,16 @@
     //print_r($result);
     $res = $stmt->fetchAll();
     //print_r($res);
-    //echo "\n";    
+    //echo "\n";
+    //$r = array('a','b','c');    
     //foreach ($res as $key => $value) 
     //{
-    //    //print_r($value['id']);
+    //    array_push($r, $value);
+    //    print_r($value['id']);
     //}
-
-    echo json_encode($res);
-    //echo json_decode($jsonEnc);
+    
+    $json = json_encode($res);
+    echo $json;
+    //var_dump($res);
 
 ?>
